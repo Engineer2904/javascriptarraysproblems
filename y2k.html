@@ -5,17 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script>
-    var multiples = [];
-    function multiple(num, length) {
-    for (var i = 1; i < length + 1; i++) {
-        multiples.push(num * i);
-    }
-    return multiples;
-}
-console.log(multiple(12, 10));
-    </script>
 </head>
+<script>
+function year(num) {
+  if (num < 35) {
+    return num + 2000;
+  } else {
+    return num + 1900;
+  }
+}
+console.log("Year->"+year(34));
+console.log("Year->"+year(36));
+</script>
 <body>
     
 </body>
