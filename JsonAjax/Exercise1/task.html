@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+      li {
+        margin: 10px 0;
+        padding: 10px;
+      }
+      .sitdown {
+        color: green;
+      }
+      .bar {
+        color: rgb(255, 55, 0);
+      }
+    </style>
+</head>
+<body>
+ 
+    <h1>Restaurant List</h1>
+    <ul id="restaurant-list"></ul>
+
+</body>
+<script>
+    var xhr = new XMLHttpRequest();
+  xhr.open("GET", "yellow.xml", true);
+  xhr.send();
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      var xml = xhr.responseXML;
+      var yellow = xml.getElementsByTagName("restaurant");
+      var list = document.getElementById("restaurant-list");
+      
+      
+      for (var i = 0; i < yellow.length; i++) {
+        var name = yellow[i].getAttribute("name");
+        var address = yellow[i].getAttribute("address");
+        var type = yellow[i].getAttribute("type");
+       
+        var item = document.createElement("li");
+        item.innerHTML = name + " - " + address;
+        item.className = type;
+        list.appendChild(item);
+      }
+    }
+  };
+</script>
+</html>
